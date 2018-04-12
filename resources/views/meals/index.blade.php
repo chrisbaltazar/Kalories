@@ -129,13 +129,13 @@
         },
         created() {
             this.loadMeals();
-            this.$http.get('/meals/1').then(response => {
+            this.$http.get('{{url("meals/1")}}').then(response => {
                this.limit = response.data.setting.value; 
             });
         },
         methods: {
             addMeal() {
-                this.$http.post('/meals', this.newMeal).then(response => {
+                this.$http.post('{{url("meals/")}}', this.newMeal).then(response => {
                     alert("Meal saved!");
                     this.loadMeals();
                     this.newMeal = {}
@@ -144,7 +144,7 @@
                 })
             }, 
             loadMeals() {
-                 this.$http.get('/meals/search/' + this.searchParams).then(response => {
+                 this.$http.get('{{url("meals/search/")}}' + this.searchParams).then(response => {
                     this.meals = response.data.meals;
                 }, error => {
                     alert(ExplainError(error));
@@ -152,7 +152,7 @@
             }, 
             deleteMeal(id, index) {
                 if(confirm("Are you sure to delete this?")){
-                    this.$http.delete('/meals/' + id).then(response => {
+                    this.$http.delete('{{url("meals/")}}' + id).then(response => {
                         alert("Meal deleted!");
                         this.meals.splice(index, 1);
                     }, error => {

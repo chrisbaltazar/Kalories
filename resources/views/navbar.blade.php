@@ -12,7 +12,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="{{url('users')}}">Users</a>
-          <a class="dropdown-item" href="/settings">Settings</a>
+          <a class="dropdown-item" href="{{url('settings')}}">Settings</a>
         </div>
       </li>
       @endif
@@ -22,12 +22,12 @@
           Meals
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/meals">History</a>
+          <a class="dropdown-item" href="{{url('meals')}}">History</a>
         </div>
       </li>
       @endif 
       <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
+          <a class="nav-link" href="{{url('logout')}}">Logout</a>
       </li>
     </ul>
     

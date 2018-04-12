@@ -36,14 +36,14 @@
         }, 
         methods: {
             load() {
-                this.$http.get('/settings/show').then(response => {
+                this.$http.get('{{url("settings/show")}}').then(response => {
                     this.calories = response.data.calories; 
                  }, error => {
                      alert(ExplainError(error));
                  });
             }, 
             setSettings() {
-                this.$http.put('/settings/1', {value: this.calories}).then(response => {
+                this.$http.put('{{url("settings/1")}}', {value: this.calories}).then(response => {
                     alert("Settings saved!");
                 }, error => {
                     alert(ExplainError(error));
