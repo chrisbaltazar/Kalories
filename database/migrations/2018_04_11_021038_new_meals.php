@@ -18,7 +18,7 @@ class NewMeals extends Migration
             $table->integer('user_id')->unsigned();
             $table->datetime('date');
             $table->string('name');
-            $table->decimal('calories', 5, 2);
+            $table->decimal('calories', 7, 2);
             
             $table->timestamps();
             $table->softDeletes();
