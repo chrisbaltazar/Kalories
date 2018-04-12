@@ -47,7 +47,7 @@ class MealsController extends Controller
         
         
         $meal = new Meal();
-        $meal->user_id = 1;
+        $meal->user_id = auth()->user()->id;
         $meal->date = Carbon::parse($request->date . " " . $request->time);
         $meal->name = $request->name;
         $meal->calories = $request->calories;
@@ -96,7 +96,7 @@ class MealsController extends Controller
         
         
         $meal = Meal::find($id);
-        $meal->user_id = 1;
+        $meal->user_id = auth()->user()->id;
         $meal->date = Carbon::parse($request->date . " " . $request->time);
         $meal->name = $request->name;
         $meal->calories = $request->calories;
@@ -119,9 +119,9 @@ class MealsController extends Controller
     public function search($dates){
         
         if(count($range = explode(",", $dates)) > 1){
-            $meals = Meal::where('user_id', 1)->whereRaw("DATE(date) BETWEEN ? and ?", [$range[0], $range[1]])->orderBy('date')->get();
+            $meals = Meal::where('user_id', auth()->user()->id)->whereRaw("DATE(date) BETWEEN ? and ?", [$range[0], $range[1]])->orderBy('date')->get();
         }else{
-            $meals = Meal::where('user_id', 1)->whereDate('date', $dates)->orderBy('date')->get();
+            $meals = Meal::where('user_id', auth()->user()->id)->whereDate('date', $dates)->orderBy('date')->get();
         }
         
         return response()->json(['meals' => $meals]);
