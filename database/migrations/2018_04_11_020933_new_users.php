@@ -28,6 +28,15 @@ class NewUsers extends Migration
             $table->integer('updated_by')->nullable();
             $table->integer('deleted_by')->nullable();
         });
+        
+        DB::table('users')->insert(
+            array(
+               'name'   => 'admin', 
+               'email'   => 'admin@admin.com', 
+               'password'   => md5('admin'), 
+               'type'   => 'ADMIN'
+            )
+        );
     }
 
     /**
