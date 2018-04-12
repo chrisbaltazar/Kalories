@@ -44,7 +44,7 @@
         }, 
         created() {
             if(this.modalData){
-                this.$http.get('/users/' + this.modalData + '/edit').then(response => {
+                this.$http.get('{{url("users/")}}' + this.modalData + '/edit').then(response => {
                    this.user = response.data.user; 
                 }, error => {
                     alert(ExplainError(error));
@@ -54,7 +54,7 @@
         methods: {
             save() {
                 if(this.modalData){
-                    this.$http.put('/users/' + this.modalData, this.user).then(response => {
+                    this.$http.put('{{url("users/")}}' + this.modalData, this.user).then(response => {
                         alert("Updated!");
                         $('#myModal').modal('hide');
                         v.loadUsers();
@@ -62,7 +62,7 @@
                         alert(ExplainError(error));
                     });
                 }else{
-                    this.$http.post('/users', this.user).then(response => {
+                    this.$http.post('{{url("users")}}', this.user).then(response => {
                         alert("Saved!");
                         v.loadUsers();
                         $('#myModal').modal('hide');

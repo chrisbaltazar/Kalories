@@ -45,7 +45,7 @@
         },
         methods: {
             updateMeal() {
-                this.$http.put('/meals/' + this.meal.id, this.meal).then(response => {
+                this.$http.put('{{url("meals/")}}' + this.meal.id, this.meal).then(response => {
                     alert("Meal updated!");
                     v.loadMeals();
                     $('#myModal').modal('hide');
