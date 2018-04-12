@@ -102,6 +102,7 @@
            component: '', 
            modalTitle: '', 
            modalData: '', 
+           baseUrl: "{{ url('meals') }}",
            filterBy: 'DAY', 
            dayFilter: moment().format('YYYY-MM-DD'),
            fromFilter : moment().format('YYYY-MM-DD'), 
@@ -144,7 +145,7 @@
                 })
             }, 
             loadMeals() {
-                 this.$http.get('{{url("meals/search/")}}' + this.searchParams).then(response => {
+                 this.$http.get('{{url("meals/search")}}/' + this.searchParams).then(response => {
                     this.meals = response.data.meals;
                 }, error => {
                     alert(ExplainError(error));

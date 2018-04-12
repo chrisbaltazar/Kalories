@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <component :is="component" :modal-data ="modalData"></component>
+        <component :is="component" :modal-data ="modalData" :base-url="baseUrl"></component>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

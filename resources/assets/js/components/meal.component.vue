@@ -22,7 +22,7 @@
 
 <script> 
     export default {
-        props: ['modalData'], 
+        props: ['modalData', 'baseUrl'], 
         data () {
             return {
                 meal: {}
@@ -45,7 +45,7 @@
         },
         methods: {
             updateMeal() {
-                this.$http.put('{{url("meals/")}}' + this.meal.id, this.meal).then(response => {
+                this.$http.put(this.baseUrl + '/' + this.meal.id, this.meal).then(response => {
                     alert("Meal updated!");
                     v.loadMeals();
                     $('#myModal').modal('hide');

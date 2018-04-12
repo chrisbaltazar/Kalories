@@ -48,7 +48,8 @@
             users: [], 
             component: '',
             modalData: '', 
-            modalTitle: ''
+            modalTitle: '', 
+            baseUrl: "{{url('users')}}"
         }, 
         created() {
             this.loadUsers();
