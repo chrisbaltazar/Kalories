@@ -18,8 +18,14 @@ class NewSettings extends Migration
             $table->string('name');
             $table->string('value');
             $table->timestamps();
-            
         });
+        
+        DB::table('settings')->insert(
+            array(
+               'name'   => 'Calories limit', 
+               'value'   => '0'
+            )
+        );
     }
 
     /**
