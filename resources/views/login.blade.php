@@ -20,7 +20,7 @@
 
 @section ('content')
 
-<form id ="login" method ="post" action ="/login">
+<form id ="login" method ="post" action ="{{url('login')}}">
     {{ csrf_field() }}
     <div class="row">
         <div class="col-6 offset-3">

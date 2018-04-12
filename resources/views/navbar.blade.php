@@ -11,7 +11,7 @@
           Administration
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/users">Users</a>
+          <a class="dropdown-item" href="{{url('users')}}">Users</a>
           <a class="dropdown-item" href="/settings">Settings</a>
         </div>
       </li>
