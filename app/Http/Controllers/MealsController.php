@@ -42,7 +42,7 @@ class MealsController extends Controller
            'date'   => 'required|date', 
            'time'   => 'required',
            'name'  => 'required|max:255', 
-           'calories' => 'required|numeric|min:0' 
+           'calories' => 'required|numeric|min:0|max:99999' 
         ]);
         
         
@@ -91,7 +91,7 @@ class MealsController extends Controller
            'date'   => 'required|date', 
            'time'   => 'required',
            'name'  => 'required|max:255', 
-           'calories' => 'required|numeric|min:0|max:10000'
+           'calories' => 'required|numeric|min:0|max:99999'
         ]);
         
         

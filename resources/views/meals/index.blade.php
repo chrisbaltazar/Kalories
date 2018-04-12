@@ -153,7 +153,7 @@
             }, 
             deleteMeal(id, index) {
                 if(confirm("Are you sure to delete this?")){
-                    this.$http.delete('{{url("meals/")}}' + id).then(response => {
+                    this.$http.delete('{{url("meals")}}' + '/' + id).then(response => {
                         alert("Meal deleted!");
                         this.meals.splice(index, 1);
                     }, error => {
