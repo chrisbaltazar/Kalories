@@ -74,7 +74,7 @@
             }, 
             deleteUser(id, index) {
                 if(confirm("Are you sure?")){
-                    this.$http.delete('{{url("users")}}' + id).then(response => {
+                    this.$http.delete('{{url("users")}}' + '/' + id).then(response => {
                         this.users.splice(index, 1);
                         alert("User is gone!");
                     }, error => {
