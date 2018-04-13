@@ -7,18 +7,17 @@
     
     <div class="alert alert-dark text-center"><h3>Settings's module</h3></div>
     
-    <transition appear enter-active-class ="animated fadeInUp"> 
-        <div class="card">
-            <div class="card-header bg-danger text-white">Set options here</div>
-            <div class="card-body">
-                <div class="form-group form-inline">
-                    <label>Set max calories per day: </label> 
-                    <input type="number" class="form-control" placeholder="Max calories" v-model="calories" required> 
-                    <button class="btn btn-dark" >Set</button>
-                </div>
+    <div class="card">
+        <div class="card-header bg-danger text-white">Set options here</div>
+        <div class="card-body">
+            <div class="form-group form-inline">
+                <label>Set max calories per day: </label> 
+                <input type="number" class="form-control" placeholder="Max calories" v-model="calories" required> 
+                <button class="btn btn-dark" >Set</button>
             </div>
         </div>
-    </transition>
+    </div>
+    
 </form>
 
 @endsection

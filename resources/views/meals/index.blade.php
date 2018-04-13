@@ -21,9 +21,9 @@
             <div class="card-body">
                 <form  class="form-inline" @submit.prevent="addMeal">
                     <label>Date</label>
-                    <input type="date" class="form-control" placeholder="Date of the meal" v-model="newMeal.date" id ="" required>
+                    <input type="date" class="form-control" placeholder="Date of the meal" v-model="newMeal.date" required>
                     <label>Time</label>
-                    <input type="time" class="form-control" placeholder="Time of the meal" v-model="newMeal.time" id ="txtTime" required>
+                    <input type="time" class="form-control" placeholder="Time of the meal" v-model="newMeal.time"  required>
                     <label>Name</label>
                     <input type="text" class="form-control" placeholder="Name of the meal" v-model="newMeal.name" required>
                     <label>Calories</label>
@@ -38,7 +38,7 @@
             <div class="card-body">
                 
                 <div class="form-group row">
-                    <div class="col-md-4">
+                    <div class="col-4">
                         <label>Filter by </label>
                         <label> Day
                             <input type="radio" v-model="filterBy" value="DAY">
@@ -47,11 +47,11 @@
                             <input type="radio" v-model="filterBy" value="PERIOD">
                         </label>
                     </div>
-                    <div class="form-inline"  :class="col_number" v-if="filterBy == 'DAY'">
+                    <div class="form-inline text-center"  :class="col_number" v-if="filterBy == 'DAY'">
                         <label>Date: </label>
                         <input type="date" class="form-control float-right" v-model="dayFilter" >
                     </div>
-                    <div class="form-inline" :class="col_number" v-if="filterBy == 'PERIOD'">
+                    <div class="form-inline text-center" :class="col_number" v-if="filterBy == 'PERIOD'">
                         <label>From: </label>
                         <input type="date" class="form-control float-right" v-model="fromFilter" >
                         <label>To: </label>
@@ -98,7 +98,10 @@
         data: { 
            limit: 0,
            meals: [], 
-           newMeal: {}, 
+           newMeal: {
+               date: moment().format('YYYY-MM-DD'), 
+               time: moment().format('HH:mm'), 
+           }, 
            component: '', 
            modalTitle: '', 
            modalData: '', 
@@ -110,7 +113,7 @@
         }, 
         computed: {
             col_number() {
-                return this.filterBy == 'DAY' ? 'col-md-3' : 'col-md-6'
+                return this.filterBy == 'DAY' ? 'col-3' : 'col-6'
             }, 
             total_calories (){
                 let total = 0; 
@@ -139,7 +142,10 @@
                 this.$http.post('{{url("meals/")}}', this.newMeal).then(response => {
                     alert("Meal saved!");
                     this.loadMeals();
-                    this.newMeal = {}
+                    this.newMeal = {
+                        date: moment().format('YYYY-MM-DD'), 
+                        time: moment().format('HH:mm'), 
+                    }
                 }, error => {
                     alert(ExplainError(error));
                 })
