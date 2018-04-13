@@ -9,8 +9,8 @@ with every meal you have, of course counting every calorie you ate!
 ## Other features included 
 
 - Vue Components 
-- Vue resourse 
-- Bootstrap 4.
+- Vue resource 
+- Bootstrap 4
 - jQuery
 - Moment js 
 
